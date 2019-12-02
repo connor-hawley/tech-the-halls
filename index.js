@@ -1,4 +1,4 @@
-const config = require("config");
+//const config = require("config");
 const mongoose = require("mongoose");
 const usersRoute = require("./routes/user");
 const express = require("express");
@@ -8,13 +8,13 @@ dotenv.config();
 
 
 // Use config to obtain private_key, otherwise exit
-if (!config.get("private_key")) {
-  console.error("FATAL ERROR: private_key is not defined.");
+if (!process.env.PRIVATE_KEY) {
+  console.error("FATAL ERROR: PRIVATE_KEY is not defined.");
   process.exit(1);
 }
 
 // Connect to mongo
-mongoose.connect(`mongodb+srv://norcon4:${config.get("tth_db_pass")}@courseracluster-79sgj.mongodb.net/test?retryWrites=true&w=majority`, 
+mongoose.connect(`mongodb+srv://norcon4:${process.env.TTH_DB_PASS}@courseracluster-79sgj.mongodb.net/test?retryWrites=true&w=majority`, 
   { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB..."))
   .catch(err => console.error("Could not connect to MongoDB..."));

@@ -1,7 +1,9 @@
-const config = require('config');
+//const config = require('config');
 const jwt = require('jsonwebtoken');
 const Joi = require('joi');
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.config();
 
 // Generic user schema
 const UserSchema = new mongoose.Schema({
@@ -32,7 +34,7 @@ const UserSchema = new mongoose.Schema({
 
 // Method to generate auth token
 UserSchema.methods.generateAuthToken = function() { 
-  const token = jwt.sign({ _id: this._id, isAdmin: this.isAdmin }, config.get('private_key')); //get the private key from the config file -> environment variable
+  const token = jwt.sign({ _id: this._id, isAdmin: this.isAdmin }, process.env.PRIVATE_KEY);
   return token;
 }
 
