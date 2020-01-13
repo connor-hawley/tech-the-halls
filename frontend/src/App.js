@@ -2,8 +2,9 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavComponent from './components/NavComponent';
+import LoginComponent from './components/LoginComponent';
 
-const LoginPage = () => <div>This is a Login Page</div>
+// const LoginPage = () => <div>This is a Login Page</div>
 const RegisterPage = () => <div>This is a Register Page</div>
 const HomePage = () => <div>This is a Home Page</div>
 const RequirementsPage = () => <div>This is an Requirements Page</div>
@@ -26,7 +27,7 @@ function App() {
             <RegisterPage />
           </Route>
           <Route path="/login">
-            <LoginPage />
+            <LoginComponent />
           </Route>
           <Route path="/">
             <HomePage />
