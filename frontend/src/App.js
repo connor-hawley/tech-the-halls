@@ -13,9 +13,7 @@ const AdminPage = () => <div>This is an Admin Page</div>
 function App() {
   return (
     <Router>
-      <div>
-        <NavComponent />
-
+        <NavComponent/>
         <Switch>
           <Route path="/admin">
             <AdminPage />
@@ -33,7 +31,6 @@ function App() {
             <HomePage />
           </Route>
         </Switch>
-      </div>
     </Router>
   );
 }
